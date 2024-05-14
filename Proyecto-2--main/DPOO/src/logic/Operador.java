@@ -13,5 +13,9 @@ public class Operador extends Empleado {
 	public String getnombre() {
 		return nombre;
 	}
+	
+	public String getapellido() {
+		return apellido;
+	}
 
 }
