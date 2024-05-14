@@ -27,7 +27,7 @@ public class operador_main {
 				System.out.println("5. Buscar artista.");
 				System.out.println("6. Buscar comprador.");;
 				System.out.println("7. Ver subastas [extendido].");
-				System.out.println("8. Salir.");
+				System.out.println("8. Salir..");
 				int opcion = escaner.nextInt();
 				
 				switch (opcion) {

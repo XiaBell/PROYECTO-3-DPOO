@@ -12,7 +12,7 @@ import logic.admin;
 public class Galeria {
 	
 	private static Inventario inventario;
-	private static ArrayList<Subasta> subastas = new ArrayList<Subasta>();
+	private static ArrayList<Subasta> Subastas = new ArrayList<Subasta>();
 	private static admin administrador;
 	private static Hashtable<String, Cashier> cajeros = new Hashtable<>();
 	private static Hashtable<String, Operador> operadores = new Hashtable<>();
@@ -22,7 +22,7 @@ public class Galeria {
 	
 	
 	public static ArrayList<Subasta> subastas(){
-		return subastas;
+		return Subastas;
 	    }
 	
 	public static void setcajero(String usuario, Cashier cajero) {

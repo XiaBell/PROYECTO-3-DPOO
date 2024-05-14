@@ -38,6 +38,10 @@ public class Comprador extends Usuario {
 		return nombre;
 	}
 	
+	public String getapellido() {
+		return apellido;
+	}
+	
 	
 	public boolean ispropietario (Comprador comprador) {
 		
