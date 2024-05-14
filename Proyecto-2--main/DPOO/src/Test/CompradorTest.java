@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import entities.Pieza;
+import logic.Comprador;
 import entities.Escultura;
 import Persistencia.piezas_persistence;
 
@@ -16,7 +17,7 @@ public class CompradorTest {
         // Inicializa un comprador con datos de prueba
         comprador = new Comprador("Test", "Usuario", 12345678, "testuser", "testpass", 3001234567, 5000, "Usuario", "01-01-2024", true);
         // Inicializa una pieza de prueba, en este caso, una Escultura
-        pieza = new Escultura(/* parámetros necesarios para el constructor de Escultura */);
+        pieza = new Escultura(0, 0, 0, null);
     }
 
     @Test
