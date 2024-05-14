@@ -1,28 +1,29 @@
-package interfaces;
-
+package Test;
 import static org.junit.Assert.*;
-import org.junit.Test;
 import org.junit.Before;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import entities.Galeria;
-import logic.Comprador;
+import org.junit.Test;
+
+import logic.admin;
 
 public class adminTest {
 
-        private final InputStream originalIn = System.in;
-        private ByteArrayInputStream inContent;
-        private Comprador comprador;
+    private admin administrador;
 
-        @Test
-        public void testConsignarPieza() {
-            // Ejecuta la consola con un usuario y contraseña de prueba
-            buyer_main.consola("usuario_prueba", "contraseña_prueba");
+    @Before
+    public void setUp() {
+        // Inicializar el objeto admin antes de cada prueba
+        administrador = new admin("usuarioAdmin", "contraseña123", "Administrador", "2024-05-27", "Ana", "Gomez");
+    }
 
-            // Verifica que la pieza ha sido consignada correctamente
-            // Esto dependerá de cómo esté implementado el método infoconsignarpieza
-            // y qué es lo que retorna o cómo cambia el estado del objeto comprador
-            // Por ejemplo, si infoconsignarpieza cambia un atributo del comprador:
-            assertEquals("Escultura", comprador.getPiezaConsignada());
-        }
-    } 
+    @Test
+    public void testGetNombre() {
+        // Verificar que el método getnombre() retorna el valor correcto
+        assertEquals("Ana", administrador.getnombre());
+    }
+
+    @Test
+    public void testGetApellido() {
+        // Verificar que el método getapellido() retorna el valor correcto
+        assertEquals("Gomez", administrador.getapellido());
+    }
+}

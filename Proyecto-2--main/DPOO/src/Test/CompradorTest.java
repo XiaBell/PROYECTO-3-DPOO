@@ -1,33 +1,34 @@
 package Test;
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
+import entities.Escultura;
 import entities.Pieza;
 import logic.Comprador;
-import entities.Escultura;
-import Persistencia.piezas_persistence;
+import org.junit.Before;
+import org.junit.Test;
+import java.util.ArrayList;
+import static org.junit.Assert.assertEquals;
 
 public class CompradorTest {
 
     private Comprador comprador;
-    private Pieza pieza;
+    private Escultura escultura;
 
     @Before
     public void setUp() {
-        // Inicializa un comprador con datos de prueba
-        comprador = new Comprador("Test", "Usuario", 12345678, "testuser", "testpass", 3001234567, 5000, "Usuario", "01-01-2024", true);
-        // Inicializa una pieza de prueba, en este caso, una Escultura
-        pieza = new Escultura(0, 0, 0, null);
+        comprador = new Comprador("Nombre", "Apellido", 12345678, "usuario", "contraseña", 3000000, 500000, "comprador", "01-01-2024", true);
+        ArrayList<String> autores = new ArrayList<>();
+        autores.add("Autor1");
+        autores.add("Autor2");
+        escultura= new Escultura("Obra1", 2024, "Colombia", autores, 1000000, false, comprador, "Escultura", false, true, 1.20, 7.8, 8.5, autores, (double) 102, false, "NA");
     }
 
     @Test
-    public void testConsignarPieza() {
-        // Ejecuta el método consignarpieza
-        comprador.consignarpieza(pieza);
+    public void testAddPieza() {
+        ArrayList<Pieza> piezasEsperadas = new ArrayList<>();
+        piezasEsperadas.add(escultura);
+        comprador.addpieza(comprador, escultura);
 
-        // Verifica que la información de la pieza se ha agregado correctamente a la persistencia
-        // Esto dependerá de cómo esté implementado el método add_info en piezas_persistence
-        // Por ejemplo, si add_info retorna un booleano indicando si la operación fue exitosa:
-        assertTrue(piezas_persistence.add_info(pieza.getInfo_pieza()));
+        ArrayList<Pieza> piezasActuales = comprador.getpiezas(comprador);
+
+        assertEquals(piezasEsperadas, piezasActuales);
     }
 }

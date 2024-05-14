@@ -43,6 +43,10 @@ public class Escultura extends Pieza{
 		this.detalles = detalles;
 	}
 	
+    public Escultura(int i, int j, int k, String string) {
+       
+    }
+
     public Double getAltura() {
         return altura;
     }

@@ -134,5 +134,10 @@ public abstract class Pieza {
 		
 	}
 
+    public String infoconsignarpieza() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'infoconsignarpieza'");
+    }
+
 	
 }
