@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import Persistencia.piezas_persistence;
 import entities.Escultura;
 import entities.Fotografia;
+import entities.Galeria;
 import entities.Pieza;
 import entities.Pintura;
 import entities.Video;
@@ -256,5 +257,31 @@ public class Comprador extends Usuario {
 		}
 
 	}
+
+public boolean verificar()
+{
+	return ingresos >= Pieza.getPrecio();
+}
+
+public void confirmarVenta(Galeria galeria, Pieza pieza, Comprador comprador)
+{
+	if(comprador.verificar())
+	{
+		pieza.setVendida(true);
+		galeria.removePieza(pieza);
+		comprador.removePieza(pieza);
+		galeria.removePieza(pieza);
+		System.out.println("La venta se ha realizado con éxito");
+	}	
+	else{
+		System.out.println("No se ha podido realizar la venta");
+	}
+	}
+
+private void removePieza(Pieza pieza) {
+	if (piezas.contains(pieza)) {
+		piezas.remove(pieza);
+	}
+}
 
 }
