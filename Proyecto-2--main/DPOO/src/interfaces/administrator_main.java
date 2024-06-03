@@ -3,17 +3,20 @@ package interfaces;
 import java.util.Scanner;
 import logic.Usuario;
 import logic.admin;
-
+import entities.Galeria;
+import entities.Pieza;
+import logic.Comprador;
+import entities.Pieza; 
+import entities.Pieza; 
 
 public class administrator_main {
 	
-	private static admin admin;
+	private static admin adminInstance;
 	
 	public static void consola(String usuario, String contrasena) {
 		
 		Scanner escaner = new Scanner(System.in);
-	    String nombre = admin.getnombre();
-	    nombre = nombre.substring(0, 1).toUpperCase() + nombre.substring(1);
+	    adminInstance = new admin(usuario, contrasena, "ADMIN", "actualizacion", "NombreAdmin", "ApellidoAdmin"); 
 		
 		while (true) {
 			
@@ -119,5 +122,33 @@ public class administrator_main {
 	}
 
 }
-	
+
+private static void registrarPieza()
+{
+	Scanner scanner = new Scanner(System.in);
+	try {
+		System.out.println("Ingrese los detalles de la pieza");
+		System.out.println("Título:");
+		String titulo = scanner.nextLine();
+		Pieza pieza = new Pieza(titulo);
+		Galeria galeria = new Galeria();
+		adminInstance.registrarPieza(galeria, pieza);
+	} finally {
+		scanner.close();
+	}
 }
+private static void confirmarVenta()
+{
+	Scanner scanner = new Scanner(System.in);
+	try {
+		System.out.println("Ingrese los detalles de la venta: ");
+		Pieza pieza = new Pieza("tituloPieza");
+		Comprador comprador = new Comprador(null, null, 0, null, null, 0, 0, null, null, false);
+		Galeria galeria = new Galeria();
+		adminInstance.confirmarVenta(galeria, pieza, comprador);
+	} finally {
+		scanner.close();
+	}
+}
+}
+
