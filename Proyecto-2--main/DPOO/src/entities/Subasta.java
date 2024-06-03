@@ -17,8 +17,19 @@ public class Subasta {
 	private ArrayList<Oferta> ofertas;
 	private ArrayList <Pieza> piezas;
 	private int codigo;
-	
-	public void codigo_unico() {
+	private double precio_Actual;
+
+	public Subasta(Pieza pieza, double precio_inicial)
+	{
+		this.codigo = pieza;
+		this.min_valorpieza = (int) precio_inicial;
+		this.precio_Actual = precio_inicial;
+		this.ofertas = new ArrayList<>();
+	}
+	public Subasta(Pieza pieza, double precio_inicial) {
+        //TODO Auto-generated constructor stub
+    }
+    public void codigo_unico() {
 		
 		 int codigoGenerado = Math.abs(operador.hashCode() + min_valorpieza + participantes.hashCode() +
 	                fechainicio.hashCode() + fechafin.hashCode() + (activo ? 1 : 0) + ofertas.hashCode() +
@@ -54,5 +65,13 @@ public int getCodigo() {
 	        }
 	        return false; // Código no encontrado, retorna false
 	    }
+
+public boolean verificarOferta(double oferta) {
+	
+	if (oferta > min_valorpieza) {
+		return true;
+	}
+	return false;
+}
 
 }
